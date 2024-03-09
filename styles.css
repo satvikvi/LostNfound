@@ -1,0 +1,259 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.login-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  width: 25%;
+}
+.logo {
+  display: block;
+  margin: 0 auto;
+  width:50%;
+}
+h2 {
+  text-align: center;
+  color: #757575;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+width: 100%;
+padding: 15px;
+border: 1px solid #dadce0;
+border-radius: 5px 0 0 5px;
+margin-top: 5px;
+box-sizing: border-box;
+font-size: 1em; 
+}
+
+.form-control:focus {
+outline: none;
+border: 2px solid #4285f4; 
+box-shadow: 0 0 1px #4285f4; 
+}
+
+.form-control:not(:focus) {
+border: 1px solid #dadce0; 
+box-shadow: none; 
+}
+
+.login-btn {
+  background-color: #4285f4;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1em; 
+}
+.login-btn:hover {
+  background-color: #357ae8;
+}
+.secondary-action {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.secondary-action a {
+  color: #4285f4;
+  text-decoration: none;
+  font-size: 1em; 
+}
+.email-input-container {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: hidden; 
+}
+
+.email-username {
+  flex-grow: 1;
+  padding: 15px;
+  border: none;
+  margin: 0;  
+  outline: none; 
+  transition: box-shadow 0.3s; 
+  font-size: 1em; 
+}
+
+.email-username:focus {
+  box-shadow: 0 0 5px #4285f4; 
+}
+
+.email-domain {
+  padding: 15px;
+  background-color: #e8f0fe;
+  color: #202124;
+  border-radius: 0 5px 5px 0;
+  white-space: nowrap; 
+  font-size: 1em;
+  border-top: 1px solid #dadce0; /* Add thin top border */
+  border-bottom: 1px solid #dadce0; /* Add thin bottom border */
+  border-right: 1px solid #dadce0; /* Add thin right border */
+  border-left: none; /* Ensure no left border */
+}
+.pass {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  font-size: 1em; 
+  }
+  .pass:focus {
+    outline: none;
+    border: 2px solid #4285f4; 
+    box-shadow: 0 0 1px #4285f4; 
+    }
+    
+    .pass:not(:focus) {
+    border: 1px solid #dadce0; 
+    box-shadow: none; 
+    }
+    .info {
+      display: block;
+      margin: 0 auto;
+      width:27%;
+    }
+    /* Custom styles for the dropdown */
+.select-container {
+  position: relative;
+}
+
+.select-container select {
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  color: #757575; /* Darker color for text */
+}
+
+.select-container::after {
+  content: '▼';
+  position: absolute;
+  top: 0;
+  right: 15px;
+  bottom: 0;
+  font-size: 1em;
+  color: #757575;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.select-container select:not(:checked) {
+  color: #202124; 
+}
+.image-container {
+  position: relative;
+  display: inline-block; /* Adjust this based on your layout needs */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0);
+  z-index: 2;
+}
+
+.input-round {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #dadce0;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  font-size: 1em; 
+  }
+  
+  .input-round:focus {
+  outline: none;
+  border: 2px solid #4285f4; 
+  box-shadow: 0 0 1px #4285f4; 
+  }
+  
+  .input-round:not(:focus) {
+  border: 1px solid #dadce0; 
+  box-shadow: none; 
+  }
+
+
+
+/* Responsiveness screen */
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+  .login-container {
+    width: 70%; 
+    margin: 20px auto; 
+  }
+
+  .logo {
+    width: 50%; /* Adjusted for consistency */
+  }
+  
+  .info {
+    width: 25%; /* Make sure this is consistent with the logo for a uniform appearance */
+  }
+  
+  .form-control, .login-btn, .select-container select, .email-username, .email-domain {
+    font-size: 16px; /* Unified font size for better alignment and to avoid zoom on focus */
+  }
+
+  .form-control, .email-username {
+    border-radius: 5px 0 0 5px; /* Corrected syntax */
+    padding: 12px 15px; /* Adjust padding to ensure alignment */
+  }
+
+  .email-domain {
+    padding: 12px 15px; /* Ensure padding matches the input field for alignment */
+    font-size: 16px; /* Ensure font size matches input field */
+    border-top: 1px solid #dadce0;
+    border-bottom: 1px solid #dadce0;
+    border-right: 1px solid #dadce0;
+    border-left: none; /* No left border to seamlessly connect with input field */
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .email-username:focus, .pass:focus {
+    box-shadow: 0 0 3px #4285f4;
+  }
+
+  .overlay {
+    background: rgba(255, 255, 255, 0); /* Keeping overlay transparent */
+  }
+  .input-round{
+    border-radius: 5px;
+  }
+}
+
+
+
+
+
