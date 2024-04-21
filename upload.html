@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Found Query</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add CSS styles for the date input to match the site font */
+        input[type="date"] {
+            font-family: Arial, sans-serif; /* Change the font family to match your site */
+            font-size: 16px; /* Adjust the font size as needed */
+            color: #333; /* Set the color to match the overall site font color */
+            /* Add any additional font styles here */
+        }
+
+        /* Style for the "Choose File" button */
+        .file-input {
+            display: block;
+            width: 100px; /* Set a fixed width */
+            margin: 0 auto; /* Center the button horizontally */
+            cursor: pointer;
+            border-radius: 5px; /* Add rounded corners */
+            background-color: #4285F4; /* Change button color */
+            color: white; /* Change text color */
+            padding: 10px 15px; /* Add padding for better appearance */
+            border: none; /* Remove border */
+            text-align: center; /* Center the text */
+        }
+
+        .file-input input[type=file] {
+            position: absolute;
+            font-size: 100px;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+
+        /* Small and faint text */
+        .small-text {
+            font-size: 12px;
+            color: #999; /* Faint color */
+        }
+    </style>
+    <script>
+        // Function to set the date and time fields to the current date and time in the Indian timezone
+        function setCurrentDateTime() {
+            var currentDate = new Date();
+            // Adjust for Indian timezone offset (UTC+5:30)
+            currentDate.setHours(currentDate.getUTCHours() + 5);
+            currentDate.setMinutes(currentDate.getUTCMinutes() + 30);
+            // Format the date as YYYY-MM-DD for the date input field
+            var formattedDate = currentDate.toISOString().split('T')[0];
+            document.getElementById('date').value = formattedDate;
+            // Format the time as HH:MM AM/PM for the time input field
+            var hours = currentDate.getHours();
+            var minutes = currentDate.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Handle midnight (0 hours)
+            var formattedTime = hours + ':' + String(minutes).padStart(2, '0') + ' ' + ampm;
+            document.getElementById('time').value = formattedTime;
+        }
+
+        // Function to update the clock every second
+        function updateClock() {
+            var currentTime = new Date();
+            // Adjust for Indian timezone offset (UTC+5:30)
+            currentTime.setHours(currentTime.getUTCHours() + 5);
+            currentTime.setMinutes(currentTime.getUTCMinutes() + 30);
+            // Format the time as HH:MM:SS for the clock display
+            var hours = String(currentTime.getHours()).padStart(2, '0');
+            var minutes = String(currentTime.getMinutes()).padStart(2, '0');
+            var seconds = String(currentTime.getSeconds()).padStart(2, '0');
+            var formattedTime = hours + ':' + minutes + ':' + seconds;
+            document.getElementById('clock').innerText = formattedTime;
+        }
+
+        // Call setCurrentDateTime() when the page loads and updateClock() every second
+        window.onload = function() {
+            setCurrentDateTime();
+            setInterval(updateClock, 1000);
+        };
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="image-container">
+            <img src="/images/logo.png" alt="MIT-WPU" class="logo"><br>
+            <img src="/images/Found12.png" alt="Login Image" class="info"><br>
+            <div class="overlay"></div> 
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" id="name" name="name" class="form-control input-round" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input type="text" id="prn" name="prn" class="form-control input-round" placeholder="PRN No">
+            </div>
+            <div class="form-group">
+                <div style="display:flex;">
+                    <div style="flex: 1;">
+                      <input type="date" id="date" name="date" class="form-control input-round" placeholder="Date">
+                    </div>
+                    <div class="date-spacer">&nbsp;</div>
+                    <div style="flex: 1;">
+                      <input type="text" id="time" name="time" class="form-control input-round" style="text-align: center" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="product_info" name="product_info" class="form-control input-round" placeholder="Product Info">
+            </div>
+            <div class="form-group">
+                <input type="text" id="description" name="description" class="form-control input-round" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <input type="text" id="location" name="location" class="form-control input-round" placeholder="Location of Finding">
+            </div>
+            <div class="form-group">
+                <label class="file-input">
+                    Choose File<input type="file" id="photo" name="photo" accept="image/*">
+                </label>
+                <p class="small-text" style="text-align: center; margin-top: 5px;">Please upload an image of the found thing*</p>
+            </div>
+            <br>
+            <button type="submit" class="login-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
